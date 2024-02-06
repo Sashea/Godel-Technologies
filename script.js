@@ -16,7 +16,7 @@ function init() {
         cells.forEach((cell, index) => {
             const frequencyIndex = Math.floor(index / numCells * dataArray.length);
             const intensity = dataArray[frequencyIndex] / 255;
-            cell.style.backgroundColor = `rgba(141, 242, 114, ${intensity})`;
+            cell.style.backgroundColor = `rgba(195, 242, 114, ${intensity})`;
         });
         requestAnimationFrame(updateColors);
     }
@@ -31,4 +31,4 @@ function init() {
     const fileInput = document.getElementById('musicFile');
     fileInput.onchange = playMusic;
 }
-window.onload = init;
+window.onchange = init;
