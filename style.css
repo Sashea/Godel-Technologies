@@ -42,6 +42,7 @@ html{
 
 #musicPlayer{
     margin-left: 0;
+    display: none;
 }
 
 #audioPlayerBox{

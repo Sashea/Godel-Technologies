@@ -1,11 +1,12 @@
 function init() {
+    const fileInput = document.getElementById('musicFile');
+    fileInput.onchange = playMusic;
     const audioElement = document.getElementById('musicPlayer');
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
     const source = audioContext.createMediaElementSource(audioElement);
     const analyser = audioContext.createAnalyser();
     source.connect(analyser);
     analyser.connect(audioContext.destination);
-
     const gridContainer = document.getElementById('grid');
     const cells = gridContainer.querySelectorAll('#cell');
     const numCells = cells.length;
@@ -21,6 +22,7 @@ function init() {
         requestAnimationFrame(updateColors);
     }
     updateColors();
+
     function playMusic() {
         const fileInput = document.getElementById('musicFile');
         const file = fileInput.files[0];
@@ -28,7 +30,7 @@ function init() {
         audioElement.src = objectURL;
         audioElement.play();
     }
-    const fileInput = document.getElementById('musicFile');
-    fileInput.onchange = playMusic;
+
+    document.getElementById('musicPlayer').style.display = 'block';
+
 }
-window.onchange = init;
